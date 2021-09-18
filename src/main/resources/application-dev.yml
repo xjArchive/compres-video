@@ -1,0 +1,7 @@
+server:
+  port: 8888
+#压缩nas备份目录
+nas:
+  srcPath: D:\file\compressTest\nas\
+  bakPath: D:\file\compressTest\nas-bak\
+
