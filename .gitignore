@@ -1,0 +1,39 @@
+HELP.md
+target/
+/RELEASE/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+*.zip
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### VS Code ###
+.vscode/
+
+pom.xml.versionsBackup
+
+### Mac
+.DS_Store
+
+
+### logs
+logs
+
+### dist
+*/dist/*.jar
+*/dist/*/*.jar
+
+hs_err*.log
+replay_*.log
+.idea/compiler.xml
