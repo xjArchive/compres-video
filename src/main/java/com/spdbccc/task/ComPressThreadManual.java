@@ -8,27 +8,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Date 2021/9/17
+ * @Date 2021/10/09
  * @Author xujin
  * @TODO
  * @Version 1.0
  */
-/*
-public class ComPressThread extends Thread {
+public class ComPressThreadManual extends Thread {
+    private static Logger logger = LoggerFactory.getLogger(ComPressThreadManual.class);
 
-    private static Logger logger = LoggerFactory.getLogger(ComPressThread.class);
+    private List<File> fs;
 
-    private File[] files;
     private String targetPath;
 
-    public ComPressThread(File[] files, String targetPath) {
-        this.files = files;
-        this.targetPath = targetPath;   //nasbak+年+月+日    不包括文件名
+    public ComPressThreadManual(List<File> fs, String targetPath) {
+        this.fs = fs;
+        this.targetPath = targetPath;
     }
 
+    /**
+     * 压缩线程
+     */
     public void run() {
-
-        for (File tmp : files) {   //开始处理压缩逻辑
+        logger.info("start excute compress thread【nasBakPath = {}】....", targetPath);
+        for (File tmp : fs) {   //开始处理压缩逻辑
             List<String> commands = new ArrayList<>();
             //src->target
             //目标目录的解析
@@ -39,7 +41,10 @@ public class ComPressThread extends Thread {
                 des.mkdirs();
             }
             String tar = des.getAbsolutePath() + File.separator + tmp.getName();
-            // commands.add("/usr/local/bin/sox");
+            if (new File(tar).exists()) {
+                continue;
+            }
+            logger.info("get compress filename = {}", tar);
             commands.add("/bin/sh");
             commands.add("-c");
             commands.add(String.format("sox %s -r 8000 -c 1 -e gsm-full-rate %s", tmp.getAbsolutePath(), tar));
@@ -54,9 +59,4 @@ public class ComPressThread extends Thread {
         }
     }
 
-
-
-
-
 }
-*/

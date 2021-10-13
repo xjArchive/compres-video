@@ -1,7 +1,12 @@
 server:
   port: 8888
-#压缩nas备份目录
+#压缩nas备份目录   auto.compress 代表是否启用定时任务处理前一天的（1 启用 0 关闭）,time 为时间
+compress:
+  bound: 500
+auto:
+  compress: 1
+  time: 0 41 15 * * ?
 nas:
-  srcPath: D:\file\compressTest\nas\
-  bakPath: D:\file\compressTest\nas-bak\
+  srcPath: D:\videoTest\
+  bakPath: D:\videoTest1\
 
